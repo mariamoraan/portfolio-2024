@@ -1,0 +1,95 @@
+# CSS Custom Properties
+
+Estás trabajando en una aplicación: los requisitos marchan, el proyecto avanza... Hasta que el diseñador tiene una brillante idea: **"Vamos a cambiar el color principal de la aplicación"**. Rápidamente os ponéis a
+explicar por qué eso requerirá una **historia XXL**, por todos los cambios que suponen, las verificaciones de contraste que habrá que hacer en cada parte y estado de la aplicación... El Product Owner parece no entender
+muy bien por qué tanto lio para cambiar un color y los requisitos se acumulan y acumulan en una pila sin fin que acaba con **código de baja calidad, burn out en el equipo y más de una mala cara en las dailies**.
+
+No te preocupes. **Te explico como se podría haber evitado.**
+
+## ¿Qué son las Custom Properties?
+
+Las Custom Properties, como su nombre indica, son propiedades personalizables que podemos utilizar en nuestro css para **aportar semántica** a los valores, **construir temas** de una forma sencilla y **evitarnos problemas**
+como el de arriba. Vale, pero todos queremos ver código. Así de simple es crear una custom property en css puro:
+
+```
+    :root {
+        --bg-color: #ffffff;
+    }
+```
+
+Y para usar nuestra custom property:
+
+```
+    .card {
+        background: var(--bg-color);
+    }
+```
+
+Genial, ¿verdad? En lugar de establecer los colores hardcodeados en cada parte de nuestre aplicación podemos hacer uso de las custom properties para que, si un día decidimos cambiar el verde del success a un tono
+más claro, no suponga una ecatombe.
+
+## ¿Y cómo uso yo esto?
+
+Vamos a ver un ejemplo un poco más real para ver el potencial de las custom properties:
+
+```
+    :root {
+
+        /** Colors **/
+
+        --on-bg-color: #111827;
+        --bg-color: #ffffff;
+        --primary-color: #34d399;
+        --on-primary-color: #ffffff;
+        --success-color: #4ade80;
+        --on-success-color: #ffffff;
+        --warning-color: #fbbf24;
+        --on-warning-color: #ffffff;
+        --error-color: #f87171;
+        --on-error-color: #ffffff;
+
+        /** Sizes **/
+
+        --xxs: 4px;
+        --xs: 8px;
+        --sm: 12px;
+        --md: 20px;
+        --lg: 32px;
+        --xl: 52px;
+        --xxl: 84px;
+
+        /** Transitions **/
+
+        --transition-duration: 500ms;
+
+        /** Radius **/
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+
+    }
+
+    body {
+        color: var(--on-bg-color);
+        background: var(--bg-color);
+    }
+```
+
+Vemos que las custom properties no atañen solo a **colores**, también podemos establecer **tamaños**, **tiempos** para transiciones, el **radio** de los bordes... Con esto tendremos un css mucho más limpio y flexible.
+
+## ¿Algo más?
+
+Por supuesto. Los custom properties no solo nos dan facilidad a la hora de maquetar nuestra aplicación, también ofrecen ventajas al trabajar con otros equipos.
+
+- Los --on-something-color (ej: --on-bg-color) son de gran ayuda, ya que permiten asegurar que el color del texto sea siempre adecuado al background.
+- Tener nombres comunes para los colores, nos ayuda a comunicarnos mejor con los demás.
+- Si utilizamos [Design Tokens](https://www.uifrommars.com/design-tokens-que-son-ventajas/), hay herramientas como [Style Dictionary](https://docs.tokens.studio/transforming/style-dictionary) que nos permiten trasladar directamente los design tokens a las custom props (¡Y funciona con otras tecnologías!)
+
+## Finalmente...
+
+Como un código vale más que mil palabras, he preparado este
+[CodeSandbox](https://codesandbox.io/p/sandbox/css-properties-gk6mty?layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522clvlbcjym0006356lz9vqx02s%2522%252C%2522sizes%2522%253A%255B100%252C0%255D%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522id%2522%253A%2522clvlbcjym0002356lpcmlm5om%2522%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522SHELLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522clvlbcjym0003356lxtinqws8%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522id%2522%253A%2522clvlbcjym0005356lywm4l6nd%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522clvlbcjym0002356lpcmlm5om%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clvlbcjyl0001356ll8i2x33i%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252Findex.html%2522%252C%2522state%2522%253A%2522IDLE%2522%257D%255D%252C%2522id%2522%253A%2522clvlbcjym0002356lpcmlm5om%2522%252C%2522activeTabId%2522%253A%2522clvlbcjyl0001356ll8i2x33i%2522%257D%252C%2522clvlbcjym0005356lywm4l6nd%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522clvlbcjym0004356lus9ntiq6%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522UNASSIGNED_PORT%2522%252C%2522port%2522%253A0%252C%2522path%2522%253A%2522%252F%2522%257D%255D%252C%2522id%2522%253A%2522clvlbcjym0005356lywm4l6nd%2522%252C%2522activeTabId%2522%253A%2522clvlbcjym0004356lus9ntiq6%2522%257D%252C%2522clvlbcjym0003356lxtinqws8%2522%253A%257B%2522tabs%2522%253A%255B%255D%252C%2522id%2522%253A%2522clvlbcjym0003356lxtinqws8%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showShells%2522%253Afalse%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D)
+para que podáis trastear y comprobar la utilidad de las custom props.
+
+🐱 ¡Gracias por leerme!

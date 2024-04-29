@@ -1,0 +1,17 @@
+.wrapper {
+  height: 8dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.current-link {
+  color: var(--accent-color);
+}

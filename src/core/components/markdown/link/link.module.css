@@ -1,0 +1,9 @@
+.link {
+  color: var(--accent-color);
+  border-bottom: 1px solid transparent;
+  transition: 200ms ease;
+}
+
+.link:hover {
+  color: grey;
+}

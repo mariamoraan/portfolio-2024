@@ -1,0 +1,24 @@
+.base-link {
+  padding: var(--padding-sm) var(--padding-md);
+  border: 1px solid var(--on-bg-primary-color);
+  border-radius: var(--border-radius-sm);
+  transition: 200ms ease;
+}
+
+.base-link:hover {
+  opacity: 0.7;
+}
+
+.icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--large-font);
+  color: var(--on-bg-primary-color);
+  transition: 200ms ease;
+}
+
+.icon-link:hover {
+  color: var(--accent-color);
+  cursor: pointer;
+}
