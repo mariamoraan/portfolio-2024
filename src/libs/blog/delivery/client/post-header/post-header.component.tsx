@@ -4,29 +4,20 @@ import { ClassNames } from "@/core/utils/class";
 import { usePathname } from "next/navigation";
 import styles from "./post-header.module.css";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Post } from "@/libs/blog/domain/post";
-import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
-import { useResolve } from "@/core/dependency-injection/use-resolve.hook";
+import { useEffect } from "react";
 import { FindPostQuery } from "@/libs/blog/application/find-post.query";
-import { CiLink } from "react-icons/ci";
+import { useGetUseCase } from "@/core/hooks/use-get-use-case";
 
 export const PostHeaderComponent = () => {
   const className = new ClassNames(styles);
   const pathname = usePathname();
-  const [post, setPost] = useState<Post>(Post.getVoidPost());
-  const [useFindPost] = useResolve([FindPostQuery]);
+  const { execute, result: post } = useGetUseCase(FindPostQuery);
 
   useEffect(() => {
-    const findPost = async () => {
-      const foundPost = await useFindPost.execute(
-        pathname.replace("/blog/", "")
-      );
-      setPost(foundPost);
-    };
-    findPost();
-  }, [pathname, useFindPost]);
+    execute(pathname.replace("/blog/", ""));
+  }, [pathname, execute]);
+
+  if (!post) return null;
 
   return (
     <div className={className.join("wrapper")}>

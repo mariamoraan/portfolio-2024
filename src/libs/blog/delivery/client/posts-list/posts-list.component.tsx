@@ -7,19 +7,17 @@ import { useEffect, useState } from "react";
 import { Post } from "@/libs/blog/domain/post";
 import { useResolve } from "@/core/dependency-injection/use-resolve.hook";
 import { FindPostsQuery } from "@/libs/blog/application/find-posts.query";
+import { useGetUseCase } from "@/core/hooks/use-get-use-case";
 
 export const PostList = () => {
   const className = new ClassNames(styles);
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [useFindPosts] = useResolve([FindPostsQuery]);
+  const { execute, result: posts } = useGetUseCase(FindPostsQuery);
 
   useEffect(() => {
-    const getPosts = async () => {
-      const foundPosts = await useFindPosts.execute();
-      setPosts(foundPosts);
-    };
-    getPosts();
-  }, [useFindPosts]);
+    execute();
+  }, [execute]);
+
+  if (!posts) return null;
 
   return (
     <div className={className.join("wrapper")}>
