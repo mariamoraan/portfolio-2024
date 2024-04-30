@@ -3,9 +3,7 @@
 import { ClassNames } from "@/core/utils/class";
 import styles from "./posts-list.module.css";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Post } from "@/libs/blog/domain/post";
-import { useResolve } from "@/core/dependency-injection/use-resolve.hook";
+import { useEffect } from "react";
 import { FindPostsQuery } from "@/libs/blog/application/find-posts.query";
 import { useGetUseCase } from "@/core/hooks/use-get-use-case";
 

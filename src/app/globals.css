@@ -45,6 +45,8 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background: var(--bg-primary-color);
   color: var(--on-bg-primary-color);
   font-size: var(--medium-font);

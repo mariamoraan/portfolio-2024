@@ -1,10 +1,13 @@
 .wrapper {
   padding: 32px;
   margin-top: 8dvh;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   background: var(--bg-dark-color);
   color: var(--on-bg-dark-color);
+  align-self: flex-end;
+  justify-self: flex-end;
 }
 
 .about,
