@@ -1,6 +1,11 @@
+import { PostContent } from "@/libs/blog/delivery/client/post-content/post-content.component";
 import "../../../../../polyfills";
 import Post from "@/libs/blog/infrastructure/posts/css-custom-properties.mdx";
 
 export default function Page() {
-  return <Post />;
+  return (
+    <PostContent>
+      <Post />
+    </PostContent>
+  );
 }

@@ -1,4 +1,5 @@
 .wrapper {
+  margin: var(--margin-xl) 0;
   padding: 24px 8px;
   border-radius: var(--border-radius-sm);
   background: #111827;

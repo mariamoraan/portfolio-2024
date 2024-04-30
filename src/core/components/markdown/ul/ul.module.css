@@ -1,0 +1,7 @@
+.items {
+  margin: var(--margin-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  list-style-position: inside;
+}
