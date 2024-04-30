@@ -35,3 +35,11 @@
 .link:hover {
   border-color: var(--on-bg-dark-color);
 }
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 24px 24px;
+    margin-top: 24px;
+    flex-direction: column;
+  }
+}

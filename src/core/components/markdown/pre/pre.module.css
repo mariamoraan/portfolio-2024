@@ -5,3 +5,10 @@
   background: #111827;
   color: white;
 }
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 12px 12px;
+    font-size: 14px;
+  }
+}

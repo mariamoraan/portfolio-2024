@@ -12,17 +12,17 @@ Las Custom Properties, como su nombre indica, son propiedades personalizables qu
 como el de arriba. Vale, pero todos queremos ver código. Así de simple es crear una custom property en css puro:
 
 ```
-    :root {
-        --bg-color: #ffffff;
-    }
+:root {
+    --bg-color: #ffffff;
+}
 ```
 
 Y para usar nuestra custom property:
 
 ```
-    .card {
-        background: var(--bg-color);
-    }
+.card {
+    background: var(--bg-color);
+}
 ```
 
 Genial, ¿verdad? En lugar de establecer los colores hardcodeados en cada parte de nuestre aplicación podemos hacer uso de las custom properties para que, si un día decidimos cambiar el verde del success a un tono
@@ -33,47 +33,47 @@ más claro, no suponga una ecatombe.
 Vamos a ver un ejemplo un poco más real para ver el potencial de las custom properties:
 
 ```
-    :root {
+:root {
 
-        /** Colors **/
+    /** Colors **/
 
-        --on-bg-color: #111827;
-        --bg-color: #ffffff;
-        --primary-color: #34d399;
-        --on-primary-color: #ffffff;
-        --success-color: #4ade80;
-        --on-success-color: #ffffff;
-        --warning-color: #fbbf24;
-        --on-warning-color: #ffffff;
-        --error-color: #f87171;
-        --on-error-color: #ffffff;
+    --on-bg-color: #111827;
+    --bg-color: #ffffff;
+    --primary-color: #34d399;
+    --on-primary-color: #ffffff;
+    --success-color: #4ade80;
+    --on-success-color: #ffffff;
+    --warning-color: #fbbf24;
+    --on-warning-color: #ffffff;
+    --error-color: #f87171;
+    --on-error-color: #ffffff;
 
-        /** Sizes **/
+    /** Sizes **/
 
-        --xxs: 4px;
-        --xs: 8px;
-        --sm: 12px;
-        --md: 20px;
-        --lg: 32px;
-        --xl: 52px;
-        --xxl: 84px;
+    --xxs: 4px;
+    --xs: 8px;
+    --sm: 12px;
+    --md: 20px;
+    --lg: 32px;
+    --xl: 52px;
+    --xxl: 84px;
 
-        /** Transitions **/
+    /** Transitions **/
 
-        --transition-duration: 500ms;
+    --transition-duration: 500ms;
 
-        /** Radius **/
+    /** Radius **/
 
-        --radius-sm: 4px;
-        --radius-md: 8px;
-        --radius-lg: 12px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
 
-    }
+}
 
-    body {
-        color: var(--on-bg-color);
-        background: var(--bg-color);
-    }
+body {
+    color: var(--on-bg-color);
+    background: var(--bg-color);
+}
 ```
 
 Vemos que las custom properties no atañen solo a **colores**, también podemos establecer **tamaños**, **tiempos** para transiciones, el **radio** de los bordes... Con esto tendremos un css mucho más limpio y flexible.
