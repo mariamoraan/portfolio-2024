@@ -1,6 +1,3 @@
-import "reflect-metadata";
-import "../../../../polyfills";
-
 import { ClassNames } from "@/core/utils/class";
 import { PostHeaderComponent } from "@/libs/blog/delivery/client/post-header/post-header.component";
 import styles from "./layout.module.css";

@@ -1,5 +1,3 @@
-import "../../polyfills";
-
 import { AboutComponent } from "@/libs/home/delivery/server/about/about.component";
 import { HeroComponent } from "@/libs/home/delivery/server/hero/hero.component";
 import { Metadata } from "next/types";
